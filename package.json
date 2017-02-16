@@ -1,0 +1,24 @@
+{
+  "name": "react-app-demo",
+  "version": "1.0.0",
+  "description": "Tutorial on building a simple react app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kamirdjanian/react-app-demo.git"
+  },
+  "author": "Kevin Amirdjanian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kamirdjanian/react-app-demo/issues"
+  },
+  "homepage": "https://github.com/kamirdjanian/react-app-demo#readme",
+  "dependencies": {
+    "axios": "^0.15.3",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  }
+}
