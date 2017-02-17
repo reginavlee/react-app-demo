@@ -21,12 +21,17 @@ const config = {
   module: {
     rules: [
       {
+        /** check for files ending in a js extension */
         test: /\.js$/,
+        /** transpile using babel */
         use: "babel-loader",
+        /** have already been transpiled when published, no need to transpile again */
         exclude: /node_modules/
       },
       {
+        /** check for files ending in a css extension */
         test: /\.css$/,
+        /** loaders are read from right to left, these loaders process the css so it shows up in the bundle */
         use: ["style-loader", "css-loader"]
       }
     ]

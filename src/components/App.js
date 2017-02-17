@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import UserList from './UserList';
 
-export default class App extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
 
@@ -9,9 +11,27 @@ export default class App extends Component {
     };
   }
 
+  componentDidMount() {
+    axios
+      .get("http://jsonplaceholder.typicode.com/users")
+      .then((users) => {
+        console.log(users);
+        this.setState({users: users.data});
+      })
+  }
+
+  filterUsers(term) {
+    let filteredUsers = [];
+    this.state.users.forEach((user) => {
+
+    })
+  }
+
   render() {
     return (
-      <div>Hello there</div>
+      <UserList users={this.state.users} />
     );
   }
 }
+
+export default App;
