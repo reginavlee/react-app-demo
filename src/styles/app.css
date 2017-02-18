@@ -1,25 +1,20 @@
-.search-bar {
+.filter {
   margin: 20px;
   text-align: center;
 }
 
-.search-bar input {
-  width: 75%;
+.filter input {
+  width: 50%;
 }
 
-.video-item img {
-  max-width: 64px;
-}
-
-.video-detail .details {
-  margin-top: 10px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+.center {
+  margin: 20px;
+  text-align: center;
 }
 
 .list-group-item {
   cursor: pointer;
+  margin: 20px;
 }
 
 .list-group-item:hover {

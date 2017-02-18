@@ -10,8 +10,11 @@ class App extends Component {
 
     this.state = {
       users: [],
-      selectedUser: null
+      selectedUser: null,
+      term: ''
     };
+
+    this.userFilter = this.userFilter.bind(this);
   }
 
   componentDidMount() {
@@ -28,21 +31,25 @@ class App extends Component {
       });
   }
 
-  filterUsers(term) {
-    let filteredUsers = [];
-    this.state.users.forEach((user) => {
-
-    })
+  userFilter(term) {
+    this.setState({ term: term });
   }
 
   render() {
+    let filteredUsers = this.state.users.filter(user => user.name.includes(this.state.term));
     return (
       <div>
-        <Filter />
-        <UserDetail user={this.state.selectedUser}/>
+        <div className="center"><strong>React Review</strong></div>
+        <Filter
+          value={this.state.term}
+          updateFilter={this.userFilter}
+        />
+        <UserDetail
+          user={this.state.selectedUser}
+        />
         <UserList
           onUserSelect={selectedUser => this.setState({selectedUser: selectedUser})}
-          users={this.state.users} 
+          users={filteredUsers} 
         />
       </div>
     );

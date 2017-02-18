@@ -1,16 +1,17 @@
 import React from 'react';
 
 const UserDetail = (props) => {
-  console.log('in user detail', props);
   if (!props.user) {
     return <div>Loading...</div>;
   };
 
   return (
     <div>
-      <div className="details">
-        <div>{props.user.username}</div>
-        <div>{props.user.email}</div>
+      <div className="center">
+        <div><strong>Spotlight User</strong></div>
+          <div><strong>Name:</strong>{props.user.name}</div>
+          <div><strong>Username:</strong>{props.user.username}</div>
+          <div><strong>Email:</strong>{props.user.email}</div>
       </div>
     </div>
   );

@@ -7,12 +7,13 @@ const UserList = (props) => {
       <UserListItem
         onUserSelect={props.onUserSelect}
         key={user.id} 
-        user={user} />
+        user={user} 
+      />
     );
   });
 
   return (
-    <ul className="col-md-4 list-group">
+    <ul>
       {users}
     </ul>
   );
