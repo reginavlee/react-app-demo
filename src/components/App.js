@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Filter from './Filter';
+import UserDetail from './UserDetail';
 import UserList from './UserList';
 
 class App extends Component {
@@ -7,7 +9,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      users: []
+      users: [],
+      selectedUser: null
     };
   }
 
@@ -15,9 +18,14 @@ class App extends Component {
     axios
       .get("http://jsonplaceholder.typicode.com/users")
       .then((users) => {
-        console.log(users);
-        this.setState({users: users.data});
+        this.setState({
+          users: users.data,
+          selectedUser: users.data[0]
+        });
       })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   filterUsers(term) {
@@ -29,7 +37,14 @@ class App extends Component {
 
   render() {
     return (
-      <UserList users={this.state.users} />
+      <div>
+        <Filter />
+        <UserDetail user={this.state.selectedUser}/>
+        <UserList
+          onUserSelect={selectedUser => this.setState({selectedUser: selectedUser})}
+          users={this.state.users} 
+        />
+      </div>
     );
   }
 }

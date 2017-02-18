@@ -16,7 +16,11 @@ const config = {
   entry: src + "/index.js",
   output: {
     path: build,
-    filename: "bundle.js"
+    filename: "bundle.js",
+    publicPath: '/build'
+  },
+  devServer: {
+    port: 9000
   },
   module: {
     rules: [
