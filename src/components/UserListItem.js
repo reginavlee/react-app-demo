@@ -1,8 +1,12 @@
 import React from 'react';
 
 const UserListItem = (props) => {
+  // takes in information and spits out JSX
 
   return(
+    // bubbling up is information, but actual function that you're calling is being passed down
+    // passing up search term
+    // passing down function
     <li onClick={() => props.onUserSelect(props.user)} className="list-group-item">
       <div>
         <div><strong>Name:</strong> {props.user.name}</div>
